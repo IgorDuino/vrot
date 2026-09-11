@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/example/vhostscan/internal/model"
+	"github.com/igorduino/vrot/internal/model"
 )
 
 var titleRE = regexp.MustCompile(`(?is)<title[^>]*>(.*?)</title>`)

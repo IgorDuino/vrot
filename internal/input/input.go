@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/example/vhostscan/internal/model"
+	"github.com/igorduino/vrot/internal/model"
 )
 
 func Target(raw string) (model.Target, error) {

@@ -4,7 +4,7 @@ import (
 	"context"
 	"crypto/tls"
 	"fmt"
-	"github.com/example/vhostscan/internal/model"
+	"github.com/igorduino/vrot/internal/model"
 	"net"
 	"net/http"
 	"net/http/httptest"

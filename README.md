@@ -1,6 +1,6 @@
-# vhostscan
+# vrot
 
-`vhostscan` finds virtual hosts unintentionally reachable through an external
+`vrot` finds virtual hosts unintentionally reachable through an external
 HTTP(S) reverse proxy. It scans a supplied target × known-vhost matrix; it is
 not a DNS brute-forcer, crawler, or generic Host-header-injection tester.
 
@@ -38,22 +38,22 @@ Bare targets mean HTTPS on port 443; explicit `http://` selects HTTP.
 ## Install and use
 
 ```bash
-go install github.com/example/vhostscan/cmd/vhostscan@latest
+go install github.com/igorduino/vrot/cmd/vrot@latest
 
 # both routing modes (default)
-vhostscan -l public.txt -w internal-vhosts.txt
+vrot -l public.txt -w internal-vhosts.txt
 # original SNI + candidate Host only
-vhostscan -l public.txt -w internal-vhosts.txt -mode host
+vrot -l public.txt -w internal-vhosts.txt -mode host
 # candidate SNI + candidate Host, while still dialing the public target
-vhostscan -l public.txt -w internal-vhosts.txt -mode sni
+vrot -l public.txt -w internal-vhosts.txt -mode sni
 # stdin targets and JSONL findings
-cat public.txt | vhostscan -w internal-vhosts.txt -json
+cat public.txt | vrot -w internal-vhosts.txt -json
 # repeat direct targets
-vhostscan -u 203.0.113.10 -u https://edge.example.com:8443 -w vhosts.txt
+vrot -u 203.0.113.10 -u https://edge.example.com:8443 -w vhosts.txt
 # inspect suppressed and error results
-vhostscan -l public.txt -w vhosts.txt -show-all -json
+vrot -l public.txt -w vhosts.txt -show-all -json
 # bounded high-throughput scan
-vhostscan -l public.txt -w vhosts.txt -c 200 -rate-limit 1000
+vrot -l public.txt -w vhosts.txt -c 200 -rate-limit 1000
 ```
 
 Typical compact output is streamed immediately:

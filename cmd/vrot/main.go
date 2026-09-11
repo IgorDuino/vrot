@@ -15,10 +15,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/example/vhostscan/internal/fingerprint"
-	in "github.com/example/vhostscan/internal/input"
-	"github.com/example/vhostscan/internal/model"
-	"github.com/example/vhostscan/internal/scanner"
+	"github.com/igorduino/vrot/internal/fingerprint"
+	in "github.com/igorduino/vrot/internal/input"
+	"github.com/igorduino/vrot/internal/model"
+	"github.com/igorduino/vrot/internal/scanner"
 )
 
 type stringsFlag []string
@@ -28,7 +28,7 @@ func (s *stringsFlag) Set(v string) error { *s = append(*s, v); return nil }
 
 func main() {
 	if err := run(); err != nil {
-		fmt.Fprintln(os.Stderr, "vhostscan:", err)
+		fmt.Fprintln(os.Stderr, "vrot:", err)
 		os.Exit(1)
 	}
 }
@@ -114,7 +114,7 @@ func run() error {
 	}
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer cancel()
-	sc := scanner.New(scanner.Config{Concurrency: concurrency, Timeout: timeout, MaxBody: maxBody, VerifyTLS: verify, Path: "/", UserAgent: "vhostscan/1.0", RateLimit: rate})
+	sc := scanner.New(scanner.Config{Concurrency: concurrency, Timeout: timeout, MaxBody: maxBody, VerifyTLS: verify, Path: "/", UserAgent: "vrot/1.0", RateLimit: rate})
 	baselines := map[string][]model.Fingerprint{}
 	for _, t := range targets {
 		for _, m := range modes {

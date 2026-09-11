@@ -1,7 +1,7 @@
 package fingerprint
 
 import (
-	"github.com/example/vhostscan/internal/model"
+	"github.com/igorduino/vrot/internal/model"
 	"testing"
 )
 

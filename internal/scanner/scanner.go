@@ -13,8 +13,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/example/vhostscan/internal/fingerprint"
-	"github.com/example/vhostscan/internal/model"
+	"github.com/igorduino/vrot/internal/fingerprint"
+	"github.com/igorduino/vrot/internal/model"
 )
 
 type Config struct {
@@ -170,5 +170,5 @@ func (s *Scanner) Run(ctx context.Context, jobs <-chan model.Probe, fn func(mode
 }
 
 func ControlName(i int) string {
-	return fmt.Sprintf("vhostscan-%d-%d.invalid", time.Now().UnixNano(), i)
+	return fmt.Sprintf("vrot-%d-%d.invalid", time.Now().UnixNano(), i)
 }
